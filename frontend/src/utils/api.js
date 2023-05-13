@@ -117,7 +117,7 @@ class Api {
 
 
 export const api = new Api({
-  baseUrl: 'http://api.mesto.blyaderuiner.nomoredomains.monster/',
+  baseUrl: 'https://api.mesto.blyaderuiner.nomoredomains.monster/',
   headers: {
     'Content-Type': 'application/json',
   },
