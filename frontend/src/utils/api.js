@@ -15,7 +15,8 @@ class Api {
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._checkResponse)
   };
@@ -25,7 +26,8 @@ class Api {
   getCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'GET',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._checkResponse)
   };
@@ -36,10 +38,11 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         name: nameElement,
         about: aboutElement
-      })
+      }),
     })
     .then(this._checkResponse)
   };
@@ -50,10 +53,11 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         name: card.name,
         link: card.link
-      })
+      }),
     })
     .then(this._checkResponse)
   };
@@ -64,9 +68,10 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         avatar: avatarLink
-      })
+      }),
     })
     .then(this._checkResponse)
   };
@@ -76,7 +81,8 @@ class Api {
   deleteUserCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._checkResponse)
   };
@@ -86,7 +92,8 @@ class Api {
   putLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._checkResponse)
   };
@@ -96,7 +103,8 @@ class Api {
   deleteLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
     method: 'DELETE',
-    headers: this._headers
+    headers: this._headers,
+    credentials: 'include',
   })
   .then(this._checkResponse)
   }
@@ -104,7 +112,8 @@ class Api {
   changeLikeCardStatus(cardId, isLiked) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: `${isLiked ? 'PUT' : 'DELETE'}`,
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._checkResponse)
   }

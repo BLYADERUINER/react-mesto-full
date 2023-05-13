@@ -19,6 +19,7 @@ const corsOptions = {
     'https://mesto.blyaderuiner.nomoredomains.monster',
     'https://api.mesto.blyaderuiner.nomoredomains.monster',
   ],
+  credentials: true,
 };
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
