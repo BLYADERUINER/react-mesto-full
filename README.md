@@ -4,12 +4,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/BLYADERUINER/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 51.250.95.233
 
-Frontend https://...
+Frontend https://mesto.blyaderuiner.nomoredomains.monster
 
-Backend https://...
+Backend https://api.mesto.blyaderuiner.nomoredomains.monster
