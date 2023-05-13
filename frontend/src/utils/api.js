@@ -117,9 +117,8 @@ class Api {
 
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
+  baseUrl: 'http://api.mesto.blyaderuiner.nomoredomains.monster/',
   headers: {
-    authorization: 'd5285990-4fcb-4b72-99e5-a77cd1bba396',
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });
