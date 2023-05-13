@@ -1,0 +1,84 @@
+@import './vendor/normalize.css';
+@import './vendor/fonts/fonts.css';
+
+/* page */
+@import './blocks/page/page.css';
+@import './blocks/page/__header/page__header.css';
+@import './blocks/page/__content/page__content.css';
+@import './blocks/page/__footer/page__footer.css';
+
+/* header */
+@import './blocks/header/header.css';
+@import './blocks/header/__logo/header__logo.css';
+@import './blocks/header/__link/header__link.css';
+@import './blocks/header/__email/header__email.css';
+@import './blocks/header/__burger-button/header__burger-button.css';
+@import './blocks/header/__burger-span/header__burger-span.css';
+@import './blocks/header/__container/header__container.css';
+@import './blocks/header/_opened/header_opened.css';
+
+/* content */
+@import './blocks/content/content.css';
+@import './blocks/content/__profile/content__profile.css';
+@import './blocks/content/__elements/content__elements.css';
+
+@import './blocks/button/button.css';
+
+/* profile */
+@import './blocks/profile/profile.css';
+@import './blocks/profile/__container-avatar/profile__container-avatar.css';
+@import './blocks/profile/__avatar-button-edit/profile__avatar-button-edit.css';
+@import './blocks/profile/__avatar/profile__avatar.css';
+@import './blocks/profile/__button-add/profile__button-add.css';
+@import './blocks/profile/__button-edit/profile__button-edit.css';
+@import './blocks/profile/__info/profile__info.css';
+@import './blocks/profile/__name/profile__name.css';
+@import './blocks/profile/__status/profile__status.css';
+@import './blocks/profile/__container/profile__container.css';
+
+/* elements & element */
+@import './blocks/elements/elements.css';
+@import './blocks/element/element.css';
+@import './blocks/element/__container/element__container.css';
+@import './blocks/element/__title/element__title.css';
+@import './blocks/element/__like/element__like.css';
+@import './blocks/element/__counter/element__counter.css';
+@import './blocks/element/__button/element__button.css';
+@import './blocks/element/__button/_active/element__button_active.css';
+@import './blocks/element/__image/element__image.css';
+@import './blocks/element/__button-bin/element__button-bin.css';
+
+/* footer */
+@import './blocks/footer/footer.css';
+@import './blocks/footer/__text/footer__text.css';
+
+/* pop-up */
+@import './blocks/pop-up/pop-up.css';
+@import './blocks/pop-up/__container/pop-up__container.css';
+@import './blocks/pop-up/__button-close/pop-up__button-close.css';
+@import './blocks/pop-up/__button-save/pop-up__button-save.css';
+@import './blocks/pop-up/__button-save/_disabled/pop-up__button-save_disabled.css';
+@import './blocks/pop-up/__form/pop-up__form.css';
+@import './blocks/pop-up/__input/pop-up__input.css';
+@import './blocks/pop-up/__input/_type_error/pop-up__input_type_error.css';
+@import './blocks/pop-up/__title/pop-up__title.css';
+@import './blocks/pop-up/_opened/pop-up_opened.css';
+@import './blocks/pop-up/__figure/pop-up__figure.css';
+@import './blocks/pop-up/__image/pop-up__image.css';
+@import './blocks/pop-up/__figcaption/pop-up__figcaption.css';
+@import './blocks/pop-up/_card-image/pop-up_card-image.css';
+@import './blocks/pop-up/__error/pop-up__error.css';
+@import './blocks/pop-up/__error/_visble/pop-up__error_visible.css';
+@import './blocks/pop-up/__tooltip-image/pop-up__tooltip-image.css';
+@import './blocks/pop-up/__tooltip-text/pop-up__tooltip-text.css';
+@import './blocks/pop-up/__loading-text/pop-up__loading.css';
+
+/* Register */
+@import './blocks/auth-reg/auth-reg.css';
+@import './blocks/auth-reg/__title/auth-reg__title.css';
+@import './blocks/auth-reg/__link/auth-reg__link.css';
+@import './blocks/auth-reg/__input/auth-reg__input.css';
+@import './blocks/auth-reg/__form/auth-reg__form.css';
+@import './blocks/auth-reg/__button/auth-reg__button.css';
+
+@import './blocks/scrollbar/scrollbar.css';

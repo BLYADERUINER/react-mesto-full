@@ -1,0 +1,24 @@
+.content {
+  max-width: 880px;
+  display: grid;
+  grid-row-gap: 50px;
+}
+
+@media screen and (max-width: 920px) {
+  .content {
+    max-width: 735px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .content {
+    max-width: 600px;
+    grid-row-gap: 36px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .content {
+    min-width: 282px;
+  }
+}

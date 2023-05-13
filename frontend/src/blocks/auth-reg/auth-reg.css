@@ -1,0 +1,13 @@
+.auth-reg {
+  margin: 60px auto 80px;
+  max-width: 358px;
+  max-height: 452px;
+}
+
+@media screen and (max-width: 568px) {
+  .auth-reg {
+    margin: 40px auto;
+    max-width: 260px;
+    max-height: 399px;
+  }
+}

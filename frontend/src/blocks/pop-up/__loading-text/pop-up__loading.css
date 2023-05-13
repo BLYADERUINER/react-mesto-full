@@ -1,0 +1,16 @@
+.pop-up__loading-text {
+  color: #FFFFFF;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 30px;
+  line-height: 32px;
+  font-style: normal;
+  font-weight: 900;
+  margin: 0;
+}
+
+@media screen and (max-width: 568px) {
+  .pop-up__loading-text {
+    font-size: 20px;
+    line-height: 22px;
+  }
+}

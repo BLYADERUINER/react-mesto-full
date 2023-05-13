@@ -1,0 +1,9 @@
+.element__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 246px;
+  margin: 25px 15px 25px 21px;
+  padding: 0;
+}

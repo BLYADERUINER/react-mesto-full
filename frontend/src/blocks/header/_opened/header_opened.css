@@ -1,0 +1,18 @@
+@media screen and (max-width: 568px) {
+  .header.header_opened .header__container{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header.header_opened .header__burger-span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  .header.header_opened .header__burger-span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header.header_opened .header__burger-span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+  }
+}

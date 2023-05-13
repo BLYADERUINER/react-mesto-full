@@ -1,0 +1,18 @@
+.header__burger-button {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  bottom: 4px;
+  right: 15px;
+  background-color: transparent;
+  z-index: 1;
+}
+
+@media screen and (max-width: 568px) {
+  .header__burger-button {
+    display: block;
+  }
+}

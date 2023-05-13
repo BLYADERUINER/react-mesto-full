@@ -1,0 +1,16 @@
+.header__burger-span {
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background-color: #FFFFFF;
+  left: 5px;
+  transition: transform .5s, opacity .5s,  background-color .5s;
+}
+
+.header__burger-span:nth-child(1) {
+  transform: translateY(-10px);
+}
+
+.header__burger-span:nth-child(3) {
+  transform: translateY(10px);
+}
