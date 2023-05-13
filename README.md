@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.95.233
+IP-адрес http://51.250.95.233
 
 Frontend https://mesto.blyaderuiner.nomoredomains.monster
 
