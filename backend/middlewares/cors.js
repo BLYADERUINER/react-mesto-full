@@ -1,6 +1,6 @@
 const allowedCors = [
-  'https://mesto.blyaderuiner.nomoredomains.monster/',
-  'https://api.mesto.blyaderuiner.nomoredomains.monster/',
+  'https://mesto.blyaderuiner.nomoredomains.monster',
+  'https://api.mesto.blyaderuiner.nomoredomains.monster',
   'localhost:3000',
 ];
 

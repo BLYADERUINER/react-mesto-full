@@ -21,9 +21,9 @@ app.use(express.json());
 app.use(helmet());
 app.use(limiter);
 app.use(cookieParser());
+app.use(cors);
 
 app.use(requestLogger);
-app.use(cors);
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');

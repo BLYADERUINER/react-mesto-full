@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.mesto.blyaderuiner.nomoredomains.monster/';
+const BASE_URL = 'https://api.mesto.blyaderuiner.nomoredomains.monster';
 
 const checkResponse = (response) => response.ok ? response.json() : Promise.reject(`Ошибка: ${response.statusText}`);
 
