@@ -36,23 +36,16 @@ function App() {
 
   // ручка проверки токена
   const handleTokenCheck = React.useCallback(() => {
-    const jwt =  localStorage.getItem('jwt');
-    if (!jwt) {
-      setLoading(false)
-    } else {
-      if (jwt) {
-        auth.checkToken(jwt)
-          .then((res) => {
-            if (res) {
-              setUserMail(res.data.email);
-            }
-            setLoggedIn(true);
-            navigate('/', {replace: true});
-          })
-          .catch((error) => console.log(error))
-          .finally(() => setLoading(false));
-      }
-    }
+    auth.checkToken()
+      .then((res) => {
+        if (res) {
+          setUserMail(res.data.email);
+        }
+        setLoggedIn(true);
+        navigate('/', {replace: true});
+      })
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
   }, [navigate]);
 
   // ручка логина
@@ -60,9 +53,8 @@ function App() {
     setLoading(true);
     auth.login(password, email)
     .then((data) => {
-      if (data.token) {
+      if (data) {
         setUserMail(email);
-        localStorage.setItem('jwt', data.token);
         setLoggedIn(true);
           navigate('/', {replace: true});
       }
@@ -95,7 +87,7 @@ function App() {
 
   // ручка выхода
   const handleSignout = () => {
-    localStorage.removeItem('jwt');
+    // localStorage.removeItem('jwt');
     setLoggedIn(false);
   };
 
