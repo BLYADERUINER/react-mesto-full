@@ -36,12 +36,12 @@ function App() {
 
   // ручка проверки токена
   const handleTokenCheck = React.useCallback(() => {
-    const jwt =  localStorage.getItem('jwt');
-    if (!jwt) {
+    const token =  localStorage.getItem('token');
+    if (!token) {
       setLoading(false)
     } else {
-      if (jwt) {
-        auth.checkToken(jwt)
+      if (token) {
+        auth.checkToken()
           .then((res) => {
             if (res) {
               setUserMail(res.data.email);
@@ -60,9 +60,9 @@ function App() {
     setLoading(true);
     auth.login(password, email)
     .then((data) => {
-      if (data.token) {
+      if (data) {
         setUserMail(email);
-        localStorage.setItem('jwt', data.token);
+        localStorage.setItem('token', 'true');
         setLoggedIn(true);
           navigate('/', {replace: true});
       }
