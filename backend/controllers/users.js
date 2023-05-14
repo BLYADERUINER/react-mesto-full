@@ -1,7 +1,9 @@
 const bcrypt = require('bcryptjs');
+const JWT = require('jsonwebtoken');
 
 const NotFoundError = require('../errors/not-found-err');
-const { generateToken } = require('../utils/token');
+const { NODE_ENV, JWT_SECRET } = process.env;
+const KEY = 'mega-super-puper-duper-secret-key';
 
 const User = require('../models/user');
 const {
@@ -82,7 +84,11 @@ const login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = generateToken({ _id: user._id });
+      const token = JWT.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : KEY,
+        { expiresIn: '7d' },
+      );
 
       res
         .cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true })
