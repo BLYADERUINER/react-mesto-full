@@ -42,7 +42,6 @@ function App() {
     } else {
       auth.checkToken()
         .then((res) => {
-          console.log(res);
           setUserMail(res.data.email);
           setLoggedIn(true);
           navigate('/', {replace: true});

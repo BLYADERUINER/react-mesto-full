@@ -40,11 +40,11 @@ function Main({
         ></button>
       </section>
       <section className="elements content__elements">
-        {cardsData.map((card) => <Card 
+        {cardsData > 0 && cardsData.map((card) => <Card
           key={card._id}
-          cardData={card} 
-          onCardClick={onCardClick}  
-          onCardLike={onCardLike} 
+          cardData={card}
+          onCardClick={onCardClick}
+          onCardLike={onCardLike}
           onCardDelete={onCardDelete} />)
         }
       </section>
