@@ -40,18 +40,15 @@ function App() {
     if (!token) {
       setLoading(false)
     } else {
-      if (token) {
-        auth.checkToken()
-          .then((res) => {
-            if (res) {
-              setUserMail(res.data.email);
-            }
-            setLoggedIn(true);
-            navigate('/', {replace: true});
-          })
-          .catch((error) => console.log(error))
-          .finally(() => setLoading(false));
-      }
+      auth.checkToken()
+        .then((res) => {
+          console.log(res);
+          setUserMail(res.data.email);
+          setLoggedIn(true);
+          navigate('/', {replace: true});
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
     }
   }, [navigate]);
 

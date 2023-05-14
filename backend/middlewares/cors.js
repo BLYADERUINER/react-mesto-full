@@ -1,7 +1,8 @@
 const allowedCors = [
   'http://localhost:3001',
+  'http://localhost:3000',
+  'http://mesto.blyaderuiner.nomoredomains.monster',
   'https://mesto.blyaderuiner.nomoredomains.monster',
-  'https://api.mesto.blyaderuiner.nomoredomains.monster',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
