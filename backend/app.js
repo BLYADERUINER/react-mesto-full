@@ -15,11 +15,11 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const app = express();
 const { PORT = 3000 } = process.env;
 const corsOptions = {
-  origin: ['http://localhost:3000',
+  credentials: true,
+  origin: ['http://localhost:3001',
     'https://mesto.blyaderuiner.nomoredomains.monster',
     'https://api.mesto.blyaderuiner.nomoredomains.monster',
   ],
-  credentials: true,
 };
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
