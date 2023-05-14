@@ -1,5 +1,5 @@
 const allowedCors = [
-  'https://localhost:3001',
+  'http://localhost:3001',
   'https://mesto.blyaderuiner.nomoredomains.monster',
   'https://api.mesto.blyaderuiner.nomoredomains.monster',
 ];
@@ -21,7 +21,7 @@ const cors = (req, res, next) => {
     res.header('Access-Control-Allow-Headers', requestHeaders);
     return res.end();
   }
-  
+
   return next();
 };
 
