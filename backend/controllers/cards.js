@@ -35,8 +35,8 @@ const deleteCard = (req, res, next) => {
       if (ownerId !== String(card.owner)) {
         throw new ForbiddenError('Произошла ошибка: у вас нет прав на удаление');
       } else {
-        card.deleteOne();
-        responseMessage(res, RESPONSE_OK, { message: 'Карточка удалена' });
+        return card.deleteOne()
+          .then(() => responseMessage(res, RESPONSE_OK, { message: 'Карточка удалена' }));
       }
     })
     .catch(next);
