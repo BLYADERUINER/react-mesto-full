@@ -5,9 +5,9 @@ function Card({ cardData, onCardClick, onCardLike, onCardDelete }) {
   // использование хук контекмта для получения информации о пользователе
   const currentUser = React.useContext(CurrentUserContext);
   // проверка на то что юзер является автором карточки
-  const isOwn = cardData.owner._id === currentUser._id;
+  const isOwn = cardData.owner === currentUser._id;
   // проверка на лайк/дизлайк
-  const isLiked = cardData.likes.some(user => user._id === currentUser._id);
+  const isLiked = cardData.likes.some((like) => like === currentUser._id);
   const cardLikeButtonClassName = (`button element__button ${isLiked && 'element__button_active'}`);
 
   function handleClick() {

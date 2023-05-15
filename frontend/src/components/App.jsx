@@ -17,8 +17,6 @@ import ProtectedRouteElement from './ProtectedRoute.jsx';
 import InfoTooltip from './InfoTooltip.jsx';
 import PopupLoading from './PopupLoading.jsx';
 
-
-
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [userMail, setUserMail] = React.useState('');
@@ -60,7 +58,7 @@ function App() {
         setUserMail(email);
         localStorage.setItem('token', 'true');
         setLoggedIn(true);
-          navigate('/', {replace: true});
+        navigate('/', {replace: true});
       }
     })
     .catch((error) => {
@@ -91,8 +89,17 @@ function App() {
 
   // ручка выхода
   const handleSignout = () => {
-    localStorage.removeItem('jwt');
-    setLoggedIn(false);
+    setLoading(true);
+    auth.logout()
+      .then(() => {
+        localStorage.removeItem('token');
+        setLoggedIn(false);
+        navigate('/signin', {replace: true});
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   // открытие попов используя Хук состояния
@@ -131,7 +138,7 @@ function App() {
   React.useEffect(() => {
     loggedIn &&
       api.getUserInfo()
-      .then((name) => setCurrentUser(name))
+      .then((name) => setCurrentUser(name.data))
       .catch((error) => console.log(error));
   }, [loggedIn]);
 
@@ -140,7 +147,7 @@ function App() {
     loggedIn &&
       api.getCards()
       .then((cards) => {
-        setCards(cards);
+        setCards(cards.data);
       })
       .catch((error) => console.log(error));
   }, [loggedIn]);
@@ -148,20 +155,18 @@ function App() {
   // функция лайка карточки
   function handleCardClick(card) {
     // проверка на поставленный лайк определенного юзера
-    const isLiked  =  card.likes.some((item) => item._id === currentUser._id);
+    const isLiked = card.likes.some((like) => like === currentUser._id);
 
     // запрос на лайк/дизлайк
     api.changeLikeCardStatus(card._id, !isLiked)
-    .then((newCard) => {
-      setCards((state) => state.map((item) => item._id === card._id ? newCard : item));
-    })
+    .then((newCard) => setCards((state) => state.map((item) => item._id === card._id ? newCard.data : item)))
     .catch((error) => console.log(error));
   }
 
   // запрос на обновление имени и статуса юзера
   function handleUpdateUser({name, about}) {
     api.patchProfileEdit(name, about)
-    .then((response) => setCurrentUser(response))
+    .then((response) => setCurrentUser(response.data))
     .then(() => closeAllPopups())
     .catch((error) => console.log(error));
   }
@@ -169,7 +174,7 @@ function App() {
   // запрос на обновление аватара юзера
   function handleUpdateUserAvatar(avatarLink) {
     api.patchAvatar(avatarLink)
-    .then((response) => setCurrentUser(response))
+    .then((response) => setCurrentUser(response.data))
     .then(() => closeAllPopups())
     .catch((error) => console.log(error));
   }
@@ -177,7 +182,7 @@ function App() {
   // запрос на добавление новой карточки
   function handleAddPlaceSubmit(place) {
     api.postNewCard(place)
-    .then((newCard) => setCards([newCard, ...cards]))
+    .then((newCard) => setCards([newCard.data, ...cards]))
     .then(() => closeAllPopups())
     .catch((error) => console.log(error));
   }

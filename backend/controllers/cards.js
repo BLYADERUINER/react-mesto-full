@@ -10,8 +10,7 @@ const {
 
 const getCards = (req, res, next) => {
   Card.find({})
-    .populate(['owner', 'likes'])
-    .then((users) => responseMessage(res, RESPONSE_OK, { data: users }))
+    .then((users) => responseMessage(res, RESPONSE_OK, { data: users.reverse() }))
     .catch(next);
 };
 
@@ -46,7 +45,11 @@ const deleteCard = (req, res, next) => {
 const likeCard = (req, res, next) => {
   Card.findByIdAndUpdate(
     req.params._id,
-    { $addToSet: { likes: req.user._id } },
+    {
+      $addToSet: {
+        likes: req.user._id,
+      },
+    },
     { new: true },
   )
     .orFail(() => {
@@ -59,7 +62,11 @@ const likeCard = (req, res, next) => {
 const dislikeCard = (req, res, next) => {
   Card.findByIdAndUpdate(
     req.params._id,
-    { $pull: { likes: req.user._id } },
+    {
+      $pull: {
+        likes: req.user._id,
+      },
+    },
     { new: true },
   )
     .orFail(() => {

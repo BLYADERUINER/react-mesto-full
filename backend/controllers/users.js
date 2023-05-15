@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const JWT = require('jsonwebtoken');
 
 const NotFoundError = require('../errors/not-found-err');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 const KEY = 'mega-super-puper-duper-secret-key';
 
@@ -97,6 +98,15 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
+const logout = (req, res) => {
+  try {
+    res.clearCookie('jwt');
+    return responseMessage(res, RESPONSE_OK, { message: 'Вы вышли из системы' });
+  } catch (err) {
+    return new Error('Неудачная попытка выйти из акканута');
+  }
+};
+
 const getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => responseMessage(res, RESPONSE_OK, { data: user }))
@@ -111,4 +121,5 @@ module.exports = {
   updateUserInfo,
   updateUserAvatar,
   login,
+  logout,
 };
