@@ -7,7 +7,7 @@ const KEY = 'mega-super-puper-duper-secret-key';
 
 function auth(req, res, next) {
   const token = req.cookies.jwt;
-  if (!token) next(new UnauthorizedError('Произошла ошибка: вы не авторизованы!'));
+  if (!token) return (new UnauthorizedError('Произошла ошибка: вы не авторизованы!'));
 
   let validToken;
 
